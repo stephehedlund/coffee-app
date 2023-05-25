@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   
   get("/signup", {:controller=> "home", :action=> "signup"})
 
+  get("/results/save/:shop_id", {:controller=> "home", :action=> "bookmark"})
+
 end

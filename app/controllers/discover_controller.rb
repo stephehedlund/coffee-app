@@ -1,0 +1,5 @@
+class DiscoverController < ApplicationController
+
+
+
+end

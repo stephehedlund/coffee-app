@@ -13,6 +13,9 @@
     <th>
       Rating
     </th>
+    <th>
+      Bookmark
+    </th>
   </tr>
 
   <% @coffee_shops.each do |coffee|%>
@@ -26,15 +29,16 @@
     <td>
      <%= coffee.fetch("rating") %>
     </td>
+    <td>
+     <a href="/results/save/<%= coffee.fetch("id") %>">Bookmark</a>
+    </td>
   </tr>
  <% end %>
   </table>
 
-<div></div>
+<p></p>
 
- <%= @coffee_shops %>
-
-<div></div>
+<p></p>
 
 
 <div>
