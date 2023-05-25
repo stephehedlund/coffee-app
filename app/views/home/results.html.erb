@@ -1,5 +1,6 @@
+<% array=Shop.last(5)%>
 
-<h2>These are the best coffee shops in or near <%=@location%></h2> 
+<h2>These are the best coffee shops in or near your location</h2> 
 
 <div></div>
 
@@ -19,7 +20,7 @@
     </th>
   </tr>
 
-  <% @array.each do |coffee|%>
+  <% array.each do |coffee|%>
   <tr>
     <td>
       <%= coffee.fetch("name") %>
@@ -36,8 +37,6 @@
   </tr>
  <% end %>
   </table>
-
-<% first_shop = @array.first%>
 
 <p></p>
 
@@ -56,7 +55,7 @@
 
     var bounds = new google.maps.LatLngBounds();
     
-    <% @array.each do |pins|%>
+    <% array.each do |pins|%>
 
     var infowindow_<%=pins.fetch("id")%> = new google.maps.InfoWindow({
       content: "<%= pins.fetch("name") %>" 

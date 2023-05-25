@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get("/discover", {:controller=> "home", :action=>"discover"})
 
+  get("/save_results", {:controller=> "discover", :action=> "save_results"})
+
   get("/results", {:controller=> "home", :action=> "results"})
   
   get("/playground", {:controller=> "home", :action=> "playground"})
