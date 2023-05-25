@@ -14,7 +14,24 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
   </head>
-
+<% if controller_name != 'home' || (action_name != 'login' && action_name != 'signup')%>
+    <nav>
+      <ul>
+        <li>
+          <a href="/home">Discover</a>
+        </li>
+        <li>
+          <a href="/home">Bookmarks</a>
+        </li>
+        <li>
+          <a href="/home">Visits</a>
+        </li>
+        <li>
+          <a href="/home">Profile</a>
+        </li>
+      </ul>
+     </nav>
+     <% end %> 
   <body>
     <%= yield %>
   </body>

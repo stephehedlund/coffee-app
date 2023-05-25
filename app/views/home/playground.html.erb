@@ -1,0 +1,76 @@
+<h2>These are the best coffee shops in or near <%=@my_location%></h2> 
+
+<div></div>
+
+<table border="1">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Location
+    </th>
+    <th>
+      Rating
+    </th>
+  </tr>
+
+  <% @my_array.each do |coffee|%>
+  <tr>
+    <td>
+      <%= coffee.fetch("name") %>
+    </td>
+    <td>
+      <%= coffee.fetch("address") %>
+    </td>
+    <td>
+     <%= coffee.fetch("rating") %>
+    </td>
+  </tr>
+ <% end %>
+  </table>
+
+<div></div>
+
+<div></div>
+
+
+<div>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script>
+  function initMap() {
+    var mapDiv = document.getElementById('map');
+
+    var map = new google.maps.Map(mapDiv);
+
+    var bounds = new google.maps.LatLngBounds();
+    
+    <% @my_array.each do |pins|%>
+
+    var infowindow_<%=pins.fetch("id")%> = new google.maps.InfoWindow({
+      content: "<%= pins.fetch("name") %>" 
+    });
+    
+    var marker_<%=pins.fetch("id")%> = new google.maps.Marker({
+      position: {lat: <%= pins.fetch("latitude") %>, lng: <%= pins.fetch("longitude") %> }, 
+      map: map,
+      title: '<%= pins.fetch("name") %>',
+      icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' 
+    });
+    
+     marker_<%=pins.fetch("id") %>.addListener('click', function() {
+    infowindow_<%= pins.fetch("id") %>.open(map, marker_<%= pins.fetch("id") %>);
+  });
+
+  bounds.extend(new google.maps.LatLng(<%= pins.fetch("latitude") %>, <%= pins.fetch("longitude") %> ));
+
+  <% end %>
+
+  map.fitBounds(bounds);
+  };
+  
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch("GMAPS_KEY")%>&callback=initMap"
+async defer></script>  
