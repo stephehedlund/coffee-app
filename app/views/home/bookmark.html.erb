@@ -1,1 +1,22 @@
-<%= @shop_id %>
+
+
+<table border="1">
+<tr>
+  <th>
+  #
+  </th>
+  <th>
+  Coffee Shop
+  </th>
+</tr>
+<% @bookmark_array.each do |index| %>
+<tr>
+  <td>
+    <%= index.fetch("id")%>
+  </td>
+  <td>
+    <%= index.fetch("shop_id")%>
+  </td>
+</tr>
+<% end%>
+</table>

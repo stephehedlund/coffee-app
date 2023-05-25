@@ -96,7 +96,13 @@ class HomeController < ApplicationController
   end
 
   def bookmark
-    @shop_id = params.fetch("shop_id")
+    shop_id = params.fetch("shop_id")
+
+    bookmark = Bookmark.new
+    bookmark.shop_id = shop_id
+    bookmark.save
+
+    @bookmark_array = Bookmark.all
 
     render({:template=> "home/bookmark.html.erb"})
   end
