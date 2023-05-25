@@ -9,7 +9,7 @@ class HomeController<ApplicationController
   end
   
   def home
-    render({:template=>"home/home.html.erb"})
+    render({:template=>"home/discover.html.erb"})
   end
   
   def results
@@ -25,7 +25,7 @@ class HomeController<ApplicationController
       parameters: {
           model: "gpt-3.5-turbo", # Required.
           messages: [
-            { role: "system", content: "Provide the best hipster coffee shops as of your data cut-off in a sample JSON based on the location provided by the user. Output will look like this {:name, :address, :latitude, :longitude, :rating}. It is ok that it is not real time. Give me no output except the JSON"},
+            { role: "system", content: "Provide the best hipster coffee shops as of your data cut-off in a sample JSON based on the location provided by the user. Output will look like this {:id, :name, :address, :latitude, :longitude, :rating}. It is ok that it is not real time. Give me no output except the JSON"},
             { role: "user", content: @location }], # Required.
           temperature: 0,
       })

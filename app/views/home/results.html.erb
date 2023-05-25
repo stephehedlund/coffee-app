@@ -33,9 +33,9 @@
 
 <% first_shop = @array.first%>
 
-<div></div>
+<p></p>
 
-<div></div>
+<p></p>
 
 
 <div>
@@ -52,20 +52,20 @@
     
     <% @array.each do |pins|%>
 
-    var infowindow = new google.maps.InfoWindow({
+    var infowindow_<%=pins.fetch("id")%> = new google.maps.InfoWindow({
       content: "<%= pins.fetch("name") %>" 
     });
     
-    var marker = new google.maps.Marker({
+    var marker_<%=pins.fetch("id")%> = new google.maps.Marker({
       position: {lat: <%= pins.fetch("latitude") %>, lng: <%= pins.fetch("longitude") %> }, 
       map: map,
       title: '<%= pins.fetch("name") %>',
       icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' 
     });
     
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
+     marker_<%=pins.fetch("id") %>.addListener('click', function() {
+    infowindow_<%= pins.fetch("id") %>.open(map, marker_<%= pins.fetch("id") %>);
+  });
 
   bounds.extend(new google.maps.LatLng(<%= pins.fetch("latitude") %>, <%= pins.fetch("longitude") %> ));
 
