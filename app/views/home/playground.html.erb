@@ -15,7 +15,7 @@
     </th>
   </tr>
 
-  <% @my_array.each do |coffee|%>
+  <% @coffee_shops.each do |coffee|%>
   <tr>
     <td>
       <%= coffee.fetch("name") %>
@@ -32,6 +32,8 @@
 
 <div></div>
 
+ <%= @coffee_shops %>
+
 <div></div>
 
 
@@ -47,7 +49,7 @@
 
     var bounds = new google.maps.LatLngBounds();
     
-    <% @my_array.each do |pins|%>
+    <% @coffee_shops.each do |pins|%>
 
     var infowindow_<%=pins.fetch("id")%> = new google.maps.InfoWindow({
       content: "<%= pins.fetch("name") %>" 
