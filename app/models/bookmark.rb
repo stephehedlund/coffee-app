@@ -8,4 +8,6 @@
 #  shop_id    :integer
 #
 class Bookmark < ApplicationRecord
+belongs_to(:shop)
+
 end

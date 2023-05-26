@@ -62,6 +62,6 @@ class HomeController < ApplicationController
 
     @bookmark_array = Bookmark.all
 
-    render({:template=> "home/bookmark.html.erb"})
+    render({:template=> "home/bookmarks.html.erb"})
   end
 end

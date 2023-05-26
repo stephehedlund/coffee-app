@@ -8,6 +8,9 @@
   <th>
   Coffee Shop
   </th>
+  <th>
+  Rating
+  </th>
 </tr>
 <% @bookmark_array.each do |index| %>
 <tr>
@@ -15,7 +18,10 @@
     <%= index.fetch("id")%>
   </td>
   <td>
-    <%= index.fetch("shop_id")%>
+    <%= index.shop.name%>
+  </td>
+  <td>
+    <%= index.shop.rating%>
   </td>
 </tr>
 <% end%>
