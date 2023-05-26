@@ -14,20 +14,21 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
   </head>
-<% if controller_name != 'home' || (action_name != 'login' && action_name != 'signup')%>
+<% if session.fetch(:user_id) == nil%>
     <nav>
       <ul>
+        <li>
+          <a href="/user_sign_up">Signup</a>
+        </li>
+    <% else %>
         <li>
           <a href="/discover">Discover</a>
         </li>
         <li>
-          <a href="/home">Bookmarks</a>
+          <a href="/bookmarks">Bookmarks</a>
         </li>
         <li>
-          <a href="/home">Visits</a>
-        </li>
-        <li>
-          <a href="/home">Profile</a>
+          <a href="/user_sign_out">Signout</a>
         </li>
       </ul>
      </nav>

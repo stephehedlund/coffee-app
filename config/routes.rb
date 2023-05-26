@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   
   get("/playground", {:controller=> "home", :action=> "playground"})
   
-  get("/", {:controller=> "home", :action=> "login"})
+  get("/", { :controller => "user_authentication", :action => "sign_in_form" })
   
   get("/signup", {:controller=> "home", :action=> "signup"})
 
