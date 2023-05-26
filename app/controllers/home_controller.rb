@@ -68,6 +68,7 @@ class HomeController < ApplicationController
 
   def bookmark
     @bookmark_array = Bookmark.where(user_id: session.fetch(:user_id))
+    @user_array = User.where(id: session.fetch(:user_id)).first
     render({:template=> "home/bookmarks"})
   end
 end

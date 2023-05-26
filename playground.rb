@@ -17,4 +17,5 @@ response = openai_client.chat(
     
     output = JSON.parse(message)
 
-    p output
+     p output
+    #p response
