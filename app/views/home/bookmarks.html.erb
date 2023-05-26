@@ -12,10 +12,10 @@
   Rating
   </th>
 </tr>
-<% @bookmark_array.each do |index| %>
+<% @bookmark_array.each_with_index do |index, i| %>
 <tr>
   <td>
-    <%= index.fetch("id")%>
+    <%= i + 1%>
   </td>
   <td>
     <%= index.shop.name%>
@@ -23,6 +23,7 @@
   <td>
     <%= index.shop.rating%>
   </td>
+ 
 </tr>
 <% end%>
 </table>

@@ -58,6 +58,7 @@ class HomeController < ApplicationController
 
     bookmark = Bookmark.new
     bookmark.shop_id = shop_id
+    bookmark.user_id = session.fetch(:user_id)
     bookmark.save
 
     @bookmark_array = Bookmark.all
