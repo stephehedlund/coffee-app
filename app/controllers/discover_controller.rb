@@ -38,14 +38,11 @@ def save_results
     shop.latitude = latitude
     shop.longitude = longitude
     shop.rating = rating
-    save_status=shop.save
+    shop.save
   end
 
-  if save_status == true
+  
     redirect_to("/results")
-  else
-    redirect_to("/discover", {:alert => user.errors.full_messages.to_sentence })
-  end
 end
 
 
