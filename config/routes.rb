@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   
   get("/signup", {:controller=> "home", :action=> "signup"})
 
-  get("/results/save/:shop_id", {:controller=> "home", :action=> "bookmark"})
+  get("/results/save/:shop_id", {:controller=> "home", :action=> "save_bookmark"})
+
+  get("/bookmarks", {:controller=> "home", :action=> "bookmark"})
 
 end

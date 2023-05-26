@@ -53,7 +53,7 @@ class HomeController < ApplicationController
     render({ :template => "home/playground.html.erb" })
   end
 
-  def bookmark
+  def save_bookmark
     shop_id = params.fetch("shop_id")
 
     bookmark = Bookmark.new
@@ -63,6 +63,11 @@ class HomeController < ApplicationController
 
     @bookmark_array = Bookmark.all
 
-    render({:template=> "home/bookmarks.html.erb"})
+    redirect_to("/bookmarks")
+  end
+
+  def bookmark
+    @bookmark_array = Bookmark.all
+    render({:template=> "home/bookmarks"})
   end
 end
